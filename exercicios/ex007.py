@@ -1,6 +1,6 @@
 nome = int(input('Quantos anos você tem? '))
 if nome < 50 : 
-    print('se loco ai compensa')
+    print('Você tem menos de 50 anos')
 
 else:
-    print('se loco n compensa')
+    print('Você tem mais de 50 anos')
