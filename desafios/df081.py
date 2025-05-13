@@ -1,4 +1,4 @@
-val = list()
+val = []
 while True:
     val.append(int(input('Digite um valor: ')))
     

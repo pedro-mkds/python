@@ -1,12 +1,16 @@
 num = list()
 
 for c in range(0,5):
-    num.append(int(input('Digite um valor: ')))
-    maior = max(num)
-    menor = min(num)
-    if num < maior and num > menor:
-        num.insert(2, num)
-
-print(num)
-print(maior, menor)
-#num.insert(posição, item)
+    n = int(input('Digite um valor: '))
+    if c == 0 or  n > num[-1]:
+        num.append(n)
+        print('Adicionado ao final da lista...')
+    else:
+        pos = 0
+        while pos < len(num):
+            if n <= num[pos]:
+                num.insert(pos,n)
+                print(f'Adicionado na posição {pos} da lista...')
+                break
+            pos += 1
+print(f'Os valores digitados em ordem foram: {num}')
