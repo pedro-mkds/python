@@ -1,4 +1,3 @@
-
 par = list()
 impar = list()
 conjunto = [par,impar]
