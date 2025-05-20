@@ -1,12 +1,15 @@
 dados = dict()
 conjunto = list()
-dados['nome'] = str(input('Nome: '))
-dados['media'] = float(input('Média: '))
-conjunto.append(dados.copy())
-print(conjunto)
-print(f'Nome é igual a {conjunto[0]['nome']}')
-print(f'Média é igual a {conjunto[0]['media']}')
-if conjunto[0]['media'] >= 6:
-    print('Situação é igual a APROVADO')
+dados['nome'] = str(input('Nome: ')).strip().title()
+dados['media'] = float(input(f'Média de {dados["nome"]}: '))
+if dados['media'] >= 6:
+    dados['situação'] = 'Aprovado'
+elif dados['media'] >= 5:
+    dados['situação'] = 'Recuperação'
 else:
-    print('Situação é igual a REPROVADO')
+    dados['situação'] = 'Reprovado'
+conjunto.append(dados.copy())
+
+print('-=' * 30)
+for k, v in dados.items():
+    print(f' -{k} é igual a {v}')
