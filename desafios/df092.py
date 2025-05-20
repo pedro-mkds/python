@@ -10,6 +10,8 @@ if dados['ctps'] != 0:
     dados['anocon'] = int(input('Ano de Contratação: '))
     dados['salario'] = float(input('Salário: R$'))
 
+
+idade = anoatual - anonasc
 dados['aposentadoria'] = idade + ((dados['anocon'] + 35) - anoatual)
 conjunto.append(dados.copy())
 print('-=' * 30)
