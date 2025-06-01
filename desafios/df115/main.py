@@ -1,20 +1,15 @@
-import cadastrar
-import json
+from desafios.df115.lib import cadastrar
+from desafios.df115.lib import arquivo
 
-def salvar_arquivo(lista, nome_arquivo='dados.json'):
-    with open(nome_arquivo, 'w', encoding='utf-8') as f:
-        json.dump(lista, f, ensure_ascii=False, indent=4)
-
-def carregar_arquivo(nome_arquivo='dados.json'):
-    try:
-        with open(nome_arquivo, 'r', encoding='utf-8') as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        return []
-
-conjunto = carregar_arquivo()
+arq = 'cursoemvideo.txt'
+if arquivo.arquivoExiste(arq):
+    print('Arquivo encontrado com sucesso!')
+else:
+    print('Arquivo não encontrado!')
+    arquivo.criarArquivo(arq)
 
 while True:
+
     print('=' * 40)
     print('\033[1;32mMENU PRINCIPAL\033[m'.center(40))
     print('=' * 40 + '\033[m')
@@ -30,10 +25,9 @@ while True:
         continue
 
     if r == 1:
-        cadastrar.cadastro(conjunto)
-        salvar_arquivo(conjunto)
+        cadastrar.cadastro(arq)
     elif r == 2:
-        cadastrar.listar(conjunto)
+        cadastrar.listar(arq)
     elif r == 3:
         print('\033[1;31mSaindo do sistema... Até logo! 👋\033[m')
         break
